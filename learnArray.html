@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correct Me</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Borel&family=Cabin:ital@1&family=Edu+SA+Beginner&family=Oswald:wght@200&family=Poppins:ital,wght@0,300;1,700&display=swap');
+
+            * {
+                
+                background-color: black;
+                color: white;
+
+            }
+
+            #font-1 {
+                font-family: 'Borel', cursive;
+            }
+            #font-2 {
+                font-family: 'Cabin', sans-serif;
+            }
+            
+            #fonts-h {
+                font-size: 40px;
+                font-family: 'Oswald', sans-serif;
+
+            }
+        </style>
+</head>
+<body>
+    <input type="text" id="inputElem">
+    <button onclick="check()" id="button">CHECK</button>
+    <p id="result"></p>
+
+    <div id="fonts">
+        <p id="fonts-h">fonts</p>
+        <div id="font-1"></div>
+        <div id="font-2"></div>
+    </div>
+    
+
+
+</body>
+    <script>
+        
+        let words = ['hello', 'friend', 'welcome'];
+
+function check() {
+    let inputElem = document.getElementById('inputElem').value;
+    let result = document.getElementById('result');
+
+        
+    let inputArray = inputElem.split(' ');
+    let modifiedArray = inputArray.map(word => {
+        if (words.includes(word)) {
+            return `<span style=" font-size: 30px;">${word}</span>`;
+            
+        } else {
+            return `<span style="color: red; font-size:30px;">${word}</span>`;
+            
+        }
+    });
+
+
+    let modifiedText = modifiedArray.join(' ');
+    result.innerHTML = modifiedText;
+
+    let font1 = document.getElementById('font-1')
+    let font2 = document.getElementById('font-2')
+    
+    font1.innerHTML = modifiedText
+    font2.innerHTML = modifiedText
+
+    let input = document.getElementById('inputElem')
+    let button = document.getElementById('button')
+    
+    input.remove()
+    button.remove()
+
+    
+     
+}
+    function back() {
+        open('learnArray.html')
+    }
+        
+    </script>
+</html>
